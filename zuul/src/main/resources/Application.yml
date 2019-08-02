@@ -1,0 +1,8 @@
+
+zuul:
+  routes:
+    random:
+      url: https://www.google.pt/
+ribbon:
+  eureka:
+    enabled: false
