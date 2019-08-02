@@ -12,6 +12,8 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.0.RELEASE</version>
+		<!--	This sucks... This dependencies does not work with spring boot 2.x.x
+			For that you will have to look at a different dependency management-->
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
