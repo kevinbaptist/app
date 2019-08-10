@@ -11,6 +11,7 @@
     <modules>
         <module>Minesweeper</module>
         <module>Patterns</module>
+        <module>ComparableVsComparator</module>
     </modules>
 
     <build>
