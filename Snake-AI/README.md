@@ -6,8 +6,8 @@
 ## How to run
 * Execute Main class in package ovh.ladon.gui
 
-#AI snakes
-* This snakes uses genetics algorithms and neural networks to develop.
+## AI snakes
+* This snakes uses genetics algorithms and neural networks to learn.
 
 
 ## Configurations
