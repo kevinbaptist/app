@@ -14,6 +14,7 @@
 * Simple project using spring boot and docker. 
 * Basically it exposes CRUD operations to deal with products.
 * The database and spring boot application are executed through docker.
+* It contains also a swagger implementation
 
 ## Zuul
 * Simple project using zuul to proxy requests.
