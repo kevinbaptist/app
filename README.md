@@ -1,5 +1,5 @@
 # Projects
-* This is a couples of projects I have worked or still working on.
+This is a couples of projects I have worked or still working on.
 
 ## ComparableVsComparator
 * Simple project that shows the difference between implementing a Comparable and Comparator interface.
@@ -9,6 +9,11 @@
 
 ## Patterns
 * Project that contains a couple of patterns that I have used or found out that they could be useful.
+
+## Snake-AI
+* Implementation of snake game.
+* There are 4 different snakes. Two of them use genetics algorithms and neural networks to learn how to play.
+There is one snake built with pre-defined rules and another that chooses the next step randomly. 
 
 ## Spring boot docker
 * Simple project using spring boot and docker. 
