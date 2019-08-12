@@ -1,0 +1,35 @@
+Runs: 5
+
+Population size: 40, 60, 80
+
+Max generations: 1000
+
+//--------------------------------
+
+Selection: tournament
+
+Tournament size:  6, 8, 10, 12
+
+//--------------------------------
+
+Recombination: one_cut, two_cuts, uniform
+
+Recombination probability: 0.7, 0.8, 0.9
+
+
+
+//--------------------------------
+Mutation: uniform_distribution_limit, gaussian
+
+Mutation probability: 0.5, 0.7, 0.9
+Mutation limit: 0.5
+Delta: 0.02
+
+//--------------------------------
+
+Problem file: ./DataSets/Two_AI_Equals.txt
+
+//--------------------------------
+
+Statistic: BestIndividual
+Statistic: BestAverage
