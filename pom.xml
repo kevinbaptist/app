@@ -13,6 +13,7 @@
         <module>Patterns</module>
         <module>ComparableVsComparator</module>
         <module>Snake-AI</module>
+        <module>Lambda-Expressions</module>
     </modules>
 
     <build>

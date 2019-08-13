@@ -1,33 +1,26 @@
 package ovh.ladon.patterns;
 
 import org.junit.jupiter.api.Test;
-import ovh.ladon.patterns.structural.decorator.EmailDecorator;
-import ovh.ladon.patterns.structural.decorator.Notification;
-import ovh.ladon.patterns.structural.decorator.NotifierDecorator;
-import ovh.ladon.patterns.structural.decorator.SmsDecorator;
+import ovh.ladon.patterns.structural.decorator.*;
 
 class DecoratorTest {
 	private static final String MESSAGE = "Hello world!";
 	@Test
 	void emailAndSmsSent() {
-		final Notification notification = new Notification(MESSAGE);
-		final EmailDecorator emailDecorator = new EmailDecorator(notification);
-		final SmsDecorator smsDecorator = new SmsDecorator(emailDecorator);
+		Notifier notification = new Notification(MESSAGE);
+		notification = new EmailDecorator(notification);
+		notification = new SmsDecorator(notification);
 
-		final NotifierDecorator notifierDecorator = new NotifierDecorator(smsDecorator);
-
-		notifierDecorator.send();//an email and sms was sent
+		notification.send();//an email and sms was sent
 
 	}
 
 	@Test
 	void smsSent() {
-		final Notification notification = new Notification(MESSAGE);
-		final SmsDecorator smsDecorator = new SmsDecorator(notification);
+		Notifier notification = new Notification(MESSAGE);
+		notification = new SmsDecorator(notification);
 
-		final NotifierDecorator notifierDecorator = new NotifierDecorator(smsDecorator);
-
-		notifierDecorator.send();//a sms was sent
+		notification.send();//a sms was sent
 
 	}
 
