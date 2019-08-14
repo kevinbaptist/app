@@ -1,9 +1,9 @@
 package ovh.ladon.patterns.structural.decorator;
 
-public class NotifierDecorator implements Notifier {
+public abstract class NotifierDecorator implements Notifier {
 	protected Notifier wrappee;
 
-	public NotifierDecorator(Notifier wrappee) {
+	NotifierDecorator(Notifier wrappee) {
 		this.wrappee = wrappee;
 	}
 
