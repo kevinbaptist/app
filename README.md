@@ -4,8 +4,12 @@ This is a couples of projects I have worked or still working on.
 ## ComparableVsComparator
 * Simple project that shows the difference between implementing a Comparable and Comparator interface.
 
+
+## Data Structures
+* Project showing basic data structures available in java.
+
 ## Lambda-Expressions
-* Project...
+* Some example of how to use lambda expressions, creating functional interfaces etc.
 
 
 ## Minesweeper 
