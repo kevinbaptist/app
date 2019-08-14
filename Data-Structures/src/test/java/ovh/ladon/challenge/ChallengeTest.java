@@ -79,6 +79,6 @@ class ChallengeTest {
 				"\n" +
 				"Oh, yeah, yeah, oh\n";
 		findMostRepeatedWord(testString4);
-		assertEquals(findMostRepeatedWord(testString4), "morning");//5times
+		assertEquals(findMostRepeatedWord(testString4), "sunday");//5times
 	}
 }
