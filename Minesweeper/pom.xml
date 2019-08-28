@@ -11,9 +11,4 @@
 
     <artifactId>Minesweeper</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>Snake-AI</module>
-    </modules>
-
-
 </project>

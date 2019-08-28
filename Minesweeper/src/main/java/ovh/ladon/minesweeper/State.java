@@ -1,5 +1,12 @@
 package ovh.ladon.minesweeper;
 
 public enum State {
-	BLANK, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, DOUBT, EXPLOSION;
+	ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, DOUBT, EXPLOSION, BLANK;
+
+	public static State valueOf(int number) {
+		if (number > 8) {
+			throw new IllegalArgumentException("Invalid number of mines");
+		}
+		return State.values()[number];
+	}
 }

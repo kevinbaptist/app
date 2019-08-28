@@ -27,7 +27,19 @@ public class Cell {
 		return state;
 	}
 
-	public boolean isHasMine() {
+	public boolean hasMine() {
 		return hasMine;
+	}
+
+	public void turnMineOn() {
+		this.hasMine = true;
+	}
+
+	public boolean isBlank() {
+		return this.state == State.BLANK;
+	}
+
+	public void changeState(int minesAround) {
+		this.state = State.valueOf(minesAround);
 	}
 }
