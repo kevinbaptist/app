@@ -95,6 +95,15 @@ public class Board {
             }
 			int minesAround = countMinesAround(column, row);
 			cell.changeState(minesAround);
+			revealNeighborCell(column, row);
+        }
+    }
+
+    public void revealNeighborCell(int column, int row) {
+        for (int x = Math.max(0, column - 1); x < Math.min(getTotalColumns(), column + 2); x++) {
+            for (int y = Math.max(0, row - 1); y < Math.min(getTotalRows(), row + 2); y++) {
+                revealCell(x, y);
+            }
         }
     }
 

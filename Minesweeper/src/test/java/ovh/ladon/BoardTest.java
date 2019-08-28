@@ -15,6 +15,8 @@ class BoardTest {
 	private final int TOTAL_ROWS = 3;
 	private final int TOTAL_MINES = 8;
 
+	private final int USER_COLUMN_SELECTION = 1;
+	private final int USER_ROW_SELECTION = 1;
 	@BeforeEach
 	void setUp() {
 		this.board = new Board(TOTAL_COLUMNS, TOTAL_ROWS, TOTAL_MINES);
@@ -86,10 +88,10 @@ class BoardTest {
 
 	@Test
 	void whenUserMakesFirstMove_thenAllMinesAreSetted() {
-		this.board.putMines(1, 1);
+		this.board.putMines(USER_COLUMN_SELECTION, USER_ROW_SELECTION);
 		for (int column = 0; column < this.board.getTotalColumns(); column++) {
 			for (int row = 0; row < this.board.getTotalRows(); row++) {
-				if (column == 1 && row == 1) {
+				if (column == USER_COLUMN_SELECTION && row == USER_ROW_SELECTION) {
 					assertFalse(this.board.getCell(column, row).hasMine());
 				} else {
 					assertTrue(this.board.getCell(column, row).hasMine());
@@ -100,16 +102,26 @@ class BoardTest {
 
 	@Test
 	void whenUserMakesMove_thenCellAreRevealed() {
-		this.board.revealCell(1, 1);
+		this.board.revealCell(USER_COLUMN_SELECTION, USER_ROW_SELECTION);
 		for (int column = 0; column < this.board.getTotalColumns(); column++) {
 			for (int row = 0; row < this.board.getTotalRows(); row++) {
-				if (column == 1 && row == 1) {
+				if (column == 1 && row == USER_ROW_SELECTION) {
 					assertFalse(this.board.getCell(column, row).hasMine());
 				} else {
 					assertTrue(this.board.getCell(column, row).hasMine());
 				}
 			}
 		}
-		assertEquals(this.board.getCell(1, 1).getState(), State.EIGHT);
+		assertEquals(this.board.getCell(USER_COLUMN_SELECTION, USER_ROW_SELECTION).getState(), State.EIGHT);
 	}
+
+    @Test
+    void whenUserMakesMove_thenNeighborCellAreRevealed() {
+        Board board = new Board(10, 10, 1);
+
+        board.revealCell(USER_COLUMN_SELECTION, USER_ROW_SELECTION);
+
+        assertTrue(board.getCell(0, 0).getState() == State.ZERO ||
+                board.getCell(0, 0).getState() == State.ONE);
+    }
 }
