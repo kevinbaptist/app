@@ -124,4 +124,27 @@ class BoardTest {
         assertTrue(board.getCell(0, 0).getState() == State.ZERO ||
                 board.getCell(0, 0).getState() == State.ONE);
     }
+
+	@Test
+	void whenUserWin_thenGameFinish() {
+		Board board = new Board(2, 1, 1);
+
+		board.revealCell(0,0);
+		assertTrue(board.hasGameFinished());
+		assertFalse(board.hasLost());
+	}
+
+	@Test
+	void whenUserLose_thenGameFinish() {
+		Board board = new Board(1, 3, 1);
+
+		board.revealCell(0,0);
+		if (board.getCell(0, 1).hasMine()) {
+			board.revealCell(0, 1);
+		} else {
+			board.revealCell(0, 2);
+		}
+		assertTrue(board.hasGameFinished());
+		assertTrue(board.hasLost());
+	}
 }

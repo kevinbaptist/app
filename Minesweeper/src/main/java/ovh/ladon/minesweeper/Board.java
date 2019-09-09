@@ -35,7 +35,7 @@ public class Board {
     }
 
     public Cell getCell(Position position) {
-        return null;
+        return this.getCell(position.getColumn(), position.getRow());
     }
 
     public Cell getCell(int column, int row) {
