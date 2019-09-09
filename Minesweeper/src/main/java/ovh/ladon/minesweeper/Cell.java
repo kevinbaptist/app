@@ -42,4 +42,8 @@ public class Cell {
 	public void changeState(int minesAround) {
 		this.state = State.valueOf(minesAround);
 	}
+
+	public void explode() {
+		this.state = State.EXPLOSION;
+	}
 }

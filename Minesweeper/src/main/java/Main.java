@@ -11,12 +11,12 @@ public class Main {
 		do {
 			InputStreamReader isr = new InputStreamReader(System.in);
 			BufferedReader br = new BufferedReader(isr);
-			System.out.print("Position (example: 3, 4): ");
+			System.out.print("Position (example: 3,4): ");
 			try {
 				String read = br.readLine();
 				String[] partes = read.split(",");
-				int column = Integer.parseInt(partes[0]);
-				int row = Integer.parseInt(partes[1]);
+				int row = Integer.parseInt(partes[0]);
+				int column = Integer.parseInt(partes[1]);
 
 				board.revealCell(column, row);
 				textualRepresentation.represent();
@@ -24,6 +24,12 @@ public class Main {
 			}catch (Exception ex){
 				System.out.println("Something went wrong");
 			}
-		}while (true);
+		}while (!board.hasGameFinished());
+
+		if (board.hasLost()) {
+			System.out.println("You lose");
+		} else {
+			System.out.println("Congratulations! You have won!!!");
+		}
 	}
 }

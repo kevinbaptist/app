@@ -34,6 +34,9 @@ public class TextualRepresentation {
             case EIGHT:
                 System.out.print(cell.getState().ordinal() + " ");
                 break;
+            case EXPLOSION:
+                System.out.print("* ");
+                break;
         }
     }
 }

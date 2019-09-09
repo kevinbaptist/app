@@ -1,14 +1,20 @@
 package ovh.ladon.minesweeper;
 
+
 import ovh.ladon.minesweeper.exception.InvalidCellBoardException;
 
 import java.util.Random;
+import java.util.logging.Logger;
 
 public class Board {
     private Cell[][] grid;
     private int totalMines;
     private Random generate;
     private boolean firstMove;
+    private Logger logger = Logger.getLogger(this.getClass().getName());
+
+    private boolean hasGameFinished;
+    private boolean hasLost;
 
     public Board(int totalColumns, int totalRows, int totalMines) {
         if (totalColumns <= 0 || totalRows <= 0 || totalMines <= 0) {
@@ -21,6 +27,9 @@ public class Board {
         this.generate = new Random();
         this.firstMove = true;
         this.grid = new Cell[totalRows][totalColumns];
+
+        hasGameFinished = false;
+        hasLost = false;
 
         this.fillBoard();
     }
@@ -83,20 +92,42 @@ public class Board {
                 row = generate.nextInt(getTotalRows());
             } while (hasMine(column, row) || (column == exceptColumn && row == exceptRow));
             getCell(column, row).turnMineOn();
+            logger.info("There is a mine in cell (" + column + ", " + row + ")");
         }
     }
 
     public void revealCell(int column, int row) {
         Cell cell = getCell(column, row);
-        if (cell.isBlank()) {
+        if (cell.isBlank() && !hasGameFinished) {
             if (firstMove) {
                 firstMove = false;
                 putMines(column, row);
             }
+            if (cell.hasMine()) {
+                playerLose();
+                cell.explode();
+                return;
+            }
 			int minesAround = countMinesAround(column, row);
 			cell.changeState(minesAround);
 			revealNeighborCell(cell);
+
+            if (checkGameHasFinished()) {
+                playerWin();
+            }
         }
+    }
+
+    private boolean checkGameHasFinished() {
+        int totalBlankCells = 0;
+        for (int column = 0; column < getTotalColumns(); column++) {
+            for (int row = 0; row < getTotalRows(); row++) {
+                if (getCell(column, row).isBlank()) {
+                    totalBlankCells++;
+                }
+            }
+        }
+        return totalBlankCells == totalMines;
     }
 
     public void revealNeighborCell(Cell cell) {
@@ -122,4 +153,21 @@ public class Board {
         return count - (getCell(column, row).hasMine()? 1 : 0);
     }
 
+    private void playerLose() {
+        this.hasGameFinished = true;
+        this.hasLost = true;
+    }
+
+    private void playerWin() {
+        this.hasGameFinished = true;
+        this.hasLost = false;
+    }
+
+    public boolean hasGameFinished() {
+        return hasGameFinished;
+    }
+
+    public boolean hasLost() {
+        return hasLost;
+    }
 }
