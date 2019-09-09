@@ -6,7 +6,7 @@ import ovh.ladon.patterns.behavioral.observer.User;
 
 import static org.junit.Assert.assertEquals;
 
-public class UserObserverTest {
+public class ObserverTest {
 
 	@Test
 	void whenUserSubscribeToService_thenTheyAreNotified() {
