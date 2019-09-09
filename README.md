@@ -13,7 +13,7 @@ This is a couples of projects I have worked or still working on.
 
 
 ## Minesweeper 
-* Engine of well know game Minesweeper.
+* Engine of the well known game Minesweeper.
 
 ## Patterns
 * Project that contains a couple of patterns that I have used or found out that they could be useful.
