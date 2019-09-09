@@ -29,7 +29,7 @@ class DecoratorTest {
 		final Notification notification = new Notification(MESSAGE);
 		final EmailDecorator emailDecorator = new EmailDecorator(notification);
 
-		final NotifierDecorator notifierDecorator = new NotifierDecorator(emailDecorator);
+		final NotifierDecorator notifierDecorator = new EmailDecorator(emailDecorator);
 
 		notifierDecorator.send();//an emailwas sent
 
