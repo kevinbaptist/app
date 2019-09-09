@@ -9,7 +9,19 @@ public class TextualRepresentation {
     }
 
     public void represent() {
+        System.out.print("    ");
+        for (int row = 0; row < board.getTotalRows(); row++) {
+            System.out.print(row + " ");
+        }
+        System.out.println();
+        System.out.print("    ");
+        for (int row = 0; row < board.getTotalRows(); row++) {
+            System.out.print("| ");
+        }
+        System.out.println();
         for (int column = 0; column < board.getTotalColumns(); column++) {
+            System.out.print(column + " - ");
+
             for (int row = 0; row < board.getTotalRows(); row++) {
                 Cell cell = board.getCell(column, row);
                 represent(cell);
