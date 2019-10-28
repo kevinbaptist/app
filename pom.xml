@@ -15,6 +15,7 @@
         <module>Snake-AI</module>
         <module>Lambda-Expressions</module>
         <module>Data-Structures</module>
+        <module>Java-8</module>
     </modules>
 
     <build>
