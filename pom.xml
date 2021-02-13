@@ -16,6 +16,7 @@
         <module>Lambda-Expressions</module>
         <module>Data-Structures</module>
         <module>threads</module>
+        <module>tryWithResources</module>
     </modules>
 
     <build>
