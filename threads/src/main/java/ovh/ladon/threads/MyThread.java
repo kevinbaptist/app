@@ -2,10 +2,11 @@ package ovh.ladon.threads;
 
 public class MyThread extends Thread {
 
-	private String parameter;
+	private ThreadLocal<String> parameter;
 
 	public MyThread(String parameter) {
-		this.parameter = parameter;
+		this.parameter = new ThreadLocal<>();
+		this.parameter.set(parameter);
 	}
 
 	@Override
