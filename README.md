@@ -34,4 +34,4 @@ There is one snake built with pre-defined rules and another that chooses the nex
 * Unfortunately, we cannot use zuul dependency when using spring-boot-web-starter version 2.x, which was the initial goal.
 
 ## Test Double
-* Some though and article reading on Test Double
+* Some thoughts and explanation on Test Double
