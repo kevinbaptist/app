@@ -17,6 +17,7 @@
         <module>Data-Structures</module>
         <module>threads</module>
         <module>tryWithResources</module>
+        <module>Mocks</module>
     </modules>
 
     <build>
